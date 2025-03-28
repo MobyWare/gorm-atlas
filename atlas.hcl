@@ -21,4 +21,5 @@ env "develop" {
       diff = "{{ sql . \"  \" }}"
     }
   }
+  url = "postgres://postgres:pass@:5431/local?search_path=public&sslmode=disable"
 }
