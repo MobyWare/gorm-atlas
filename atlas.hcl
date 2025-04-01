@@ -10,7 +10,7 @@ data "external_schema" "gorm" {
   ]
 }
 
-env "develop" {
+env "local" {
   src = data.external_schema.gorm.url
   dev = "docker://postgres/15/dev?search_path=public"
   migration {
@@ -21,5 +21,5 @@ env "develop" {
       diff = "{{ sql . \"  \" }}"
     }
   }
-  url = "postgres://postgres:pass@:5431/local?search_path=public&sslmode=disable"
+  url = "postgres://postgres:pass@:5431/postgres?search_path=public&sslmode=disable"
 }
