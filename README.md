@@ -13,17 +13,10 @@ A GORM managed postgresql database with Atlas integration for managing migration
 
 With the prerequisites met we can now do the following
 
-1. Update the `models.go` file to reflect desired schema changes
+1. Update the GORM Models in the [models folder](./models/) file to reflect desired schema changes
 2. Run `atlas migrate diff --env local` to generate a `migration.sql` file that will contain the changes made to the schema in a `sql` format
-> Any potential issues with the desired change will be picked up by atlas and will result in an error 
-3. Commit and push changes 
-
-## Migration Deployment 
-
-The `deploy-migration.yml` workflow takes care of migration application for us by using a `atlas` to apply new migrations 
 
 ## Local testing
-
 Using Docker command below you can test deployment to an ephemeral DB.
 
 ```
