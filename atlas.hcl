@@ -1,3 +1,9 @@
+variable "url" {
+  type = string
+  default = getenv("MIGRATION_DATABASE_URL")
+}
+
+
 data "external_schema" "gorm" {
   program = [
     "go",
@@ -21,5 +27,5 @@ env "local" {
       diff = "{{ sql . \"  \" }}"
     }
   }
-  url = "postgres://postgres:pass@:5431/postgres?search_path=public&sslmode=disable"
+  url = var.url
 }
